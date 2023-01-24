@@ -1,3 +1,4 @@
+import 'package:chat_bubbles/bubbles/bubble_special_three.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:message_screen/Screen/chat_screen/controller/chat_controller.dart';
@@ -78,40 +79,43 @@ class ScreenChats extends StatelessWidget {
         ),
       ),
       body: GetBuilder<ChatController>(
-        builder: (controller) => Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ListView.builder(
-            itemCount: chatController.messages.length,
-            shrinkWrap: true,
-            padding: const EdgeInsets.only(top: 10, bottom: 10),
-            physics: const NeverScrollableScrollPhysics(),
-            itemBuilder: (context, index) {
-              return Container(
-                padding: const EdgeInsets.only(
-                    left: 14, right: 14, top: 10, bottom: 10),
-                child: Align(
-                  alignment:
-                      (chatController.messages[index].messageType == "receiver"
-                          ? Alignment.topLeft
-                          : Alignment.topRight),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: (chatController.messages[index].messageType ==
-                              "receiver"
-                          ? Colors.grey.shade200
-                          : dartGreen),
-                    ),
-                    padding: const EdgeInsets.all(16),
-                    child: Text(
-                      chatController.messages[index].messageContent,
-                      style: const TextStyle(fontSize: 15),
-                    ),
+        builder: (controller) => ListView.builder(
+          itemCount: chatController.messages.length,
+          shrinkWrap: true,
+          padding: const EdgeInsets.only(top: 10, bottom: 10),
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) {
+            return Container(
+              padding: const EdgeInsets.only(
+                  left: 14, right: 14, top: 10, bottom: 10),
+              child: Align(
+                alignment:
+                    (chatController.messages[index].messageType == "receiver"
+                        ? Alignment.topLeft
+                        : Alignment.topRight),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: (chatController.messages[index].messageType ==
+                            "receiver"
+                        ? Colors.grey.shade200
+                        : dartGreen),
                   ),
+                  padding: const EdgeInsets.all(16),
+                  child:  BubbleSpecialThree(
+                    text: chatController.messages[index].messageContent,
+                    color: const Color(0xFF1B97F3),
+                    tail: true,
+                    textStyle: const TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                  // Text(
+                  //   chatController.messages[index].messageContent,
+                  //   style: const TextStyle(fontSize: 15),
+                  // ),
                 ),
-              );
-            },
-          ),
+              ),
+            );
+          },
         ),
       ),
     );
