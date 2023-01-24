@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:message_screen/core/color/colors.dart';
 
 class ScreenChats extends StatelessWidget {
   const ScreenChats({super.key});
@@ -6,7 +7,8 @@ class ScreenChats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ,
+      backgroundColor: backgroundColor,
+      appBar: AppBar(),
     );
   }
 }
