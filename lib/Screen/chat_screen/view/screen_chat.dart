@@ -23,7 +23,7 @@ class ScreenChats extends StatelessWidget {
               children: <Widget>[
                 IconButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                   Get.back();
                   },
                   icon: const Icon(
                     Icons.arrow_back_ios,
@@ -34,32 +34,34 @@ class ScreenChats extends StatelessWidget {
                   width: 2,
                 ),
                 const CircleAvatar(
-                  backgroundImage: NetworkImage(""),
+                  backgroundImage: NetworkImage(
+                      "https://img.freepik.com/premium-photo/young-handsome-man-with-beard-isolated-keeping-arms-crossed-frontal-position_1368-132662.jpg?w=2000"),
                   maxRadius: 20,
                 ),
-               kWidth12,
+                kWidth12,
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+                      kHeight5,
                       const Text(
                         "Kriss Benwat",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w600),
                       ),
-                      kHeight6,
+                      kHeigh2,
                       Text(
-                        "Online",
-                        style: TextStyle(
-                            color: Colors.grey.shade600, fontSize: 13),
+                        "Medical Student",
+                        style: detailsTextStyle,
                       ),
+                      kHeigh2,
+                      Text(
+                        'Altal State Medical University',
+                        style: detailsTextStyle,
+                      )
                     ],
                   ),
-                ),
-                const Icon(
-                  Icons.settings,
-                  color: Colors.black54,
                 ),
               ],
             ),
