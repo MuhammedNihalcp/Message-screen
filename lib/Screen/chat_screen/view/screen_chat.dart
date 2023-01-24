@@ -16,6 +16,12 @@ class ScreenChats extends StatelessWidget {
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(
+            height * 0.02,
+          ),
+          child: const SizedBox(),
+        ),
         flexibleSpace: SafeArea(
           child: Container(
             padding: const EdgeInsets.only(right: 16),
@@ -23,11 +29,11 @@ class ScreenChats extends StatelessWidget {
               children: <Widget>[
                 IconButton(
                   onPressed: () {
-                   Get.back();
+                    Get.back();
                   },
                   icon: const Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.black,
+                    Icons.arrow_back_ios_rounded,
+                    color:dartGreen,
                   ),
                 ),
                 const SizedBox(
@@ -44,7 +50,7 @@ class ScreenChats extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      kHeight5,
+                      kHeigh2,
                       const Text(
                         "Kriss Benwat",
                         style: TextStyle(
