@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:message_screen/Screen/chat_screen/view/screen_chat.dart';
 
 void main() {
@@ -10,9 +11,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  GetMaterialApp(
+      theme: ThemeData(),
       debugShowCheckedModeBanner: false,
-      home: ScreenChats(),
+      home:  ScreenChats(),
     );
   }
 }
