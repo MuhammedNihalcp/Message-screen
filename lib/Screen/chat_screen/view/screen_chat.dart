@@ -100,7 +100,7 @@ class ScreenChats extends StatelessWidget {
                       color: (chatController.messages[index].messageType ==
                               "receiver"
                           ? Colors.grey.shade200
-                          : Colors.blue[200]),
+                          : dartGreen),
                     ),
                     padding: const EdgeInsets.all(16),
                     child: Text(
