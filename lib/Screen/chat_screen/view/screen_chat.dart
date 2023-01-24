@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:message_screen/Screen/chat_screen/controller/chat_controller.dart';
 import 'package:message_screen/core/color/colors.dart';
 import 'package:message_screen/core/color/size/size.dart';
 
 class ScreenChats extends StatelessWidget {
   ScreenChats({super.key});
+
+  final chatController = Get.put(ChatController());
 
   final width = Get.size.width;
   final height = Get.size.height;
@@ -33,7 +36,7 @@ class ScreenChats extends StatelessWidget {
                   },
                   icon: const Icon(
                     Icons.arrow_back_ios_rounded,
-                    color:dartGreen,
+                    color: dartGreen,
                   ),
                 ),
                 const SizedBox(
@@ -71,6 +74,43 @@ class ScreenChats extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+        ),
+      ),
+      body: GetBuilder<ChatController>(
+        builder: (controller) => Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView.builder(
+            itemCount: chatController.messages.length,
+            shrinkWrap: true,
+            padding: const EdgeInsets.only(top: 10, bottom: 10),
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              return Container(
+                padding: const EdgeInsets.only(
+                    left: 14, right: 14, top: 10, bottom: 10),
+                child: Align(
+                  alignment:
+                      (chatController.messages[index].messageType == "receiver"
+                          ? Alignment.topLeft
+                          : Alignment.topRight),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: (chatController.messages[index].messageType ==
+                              "receiver"
+                          ? Colors.grey.shade200
+                          : Colors.blue[200]),
+                    ),
+                    padding: const EdgeInsets.all(16),
+                    child: Text(
+                      chatController.messages[index].messageContent,
+                      style: const TextStyle(fontSize: 15),
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
         ),
       ),
