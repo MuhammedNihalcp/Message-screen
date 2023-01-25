@@ -1,4 +1,5 @@
 import 'package:chat_bubbles/bubbles/bubble_special_three.dart';
+import 'package:chat_bubbles/message_bars/message_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:message_screen/Screen/chat_screen/controller/chat_controller.dart';
@@ -106,6 +107,10 @@ class ScreenChats extends StatelessWidget {
             );
           },
         ),
+      ),
+      bottomNavigationBar: MessageBar(
+        // onSend: (_) => print(_),
+        sendButtonColor: const Color.fromARGB(255, 255, 19, 15),
       ),
     );
   }
