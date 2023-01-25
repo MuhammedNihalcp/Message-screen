@@ -80,37 +80,43 @@ class ScreenChats extends StatelessWidget {
         ),
       ),
       body: GetBuilder<ChatController>(
-        builder: (controller) => ListView.builder(
-          itemCount: chatController.messages.length,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            return Container(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: BubbleSpecialThree(
-                text: chatController.messages[index].messageContent,
-                color: chatController.messages[index].messageType == "receiver"
-                    ? colorWihte
-                    : dartGreen,
-                tail: true,
-                isSender:
-                    chatController.messages[index].messageType == "receiver"
-                        ? false
-                        : true,
-                textStyle: TextStyle(
-                    color:
-                        chatController.messages[index].messageType == "receiver"
-                            ? colorBlack
-                            : colorWihte,
-                    fontSize: 16),
+        builder: (controller) => Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: chatController.messages.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return Container(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: BubbleSpecialThree(
+                      text: chatController.messages[index].messageContent,
+                      color: chatController.messages[index].messageType ==
+                              "receiver"
+                          ? colorWihte
+                          : dartGreen,
+                      tail: true,
+                      isSender: chatController.messages[index].messageType ==
+                              "receiver"
+                          ? false
+                          : true,
+                      textStyle: TextStyle(
+                          color: chatController.messages[index].messageType ==
+                                  "receiver"
+                              ? colorBlack
+                              : colorWihte,
+                          fontSize: 16),
+                    ),
+                  );
+                },
               ),
-            );
-          },
+            ),
+            MessageBar(
+              sendButtonColor: const Color.fromARGB(255, 255, 19, 15),
+              messageBarColor: Colors.transparent,
+            ),
+          ],
         ),
-      ),
-      bottomNavigationBar: MessageBar(
-        // onSend: (_) => print(_),
-        sendButtonColor: const Color.fromARGB(255, 255, 19, 15),
       ),
     );
   }
