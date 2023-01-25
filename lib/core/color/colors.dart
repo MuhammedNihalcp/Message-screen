@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 const backgroundColor = Color.fromARGB(255, 218, 214, 214);
 const colorWihte = Colors.white;
 
-const dartGreen = Color.fromARGB(255, 76, 175, 101);
+const dartGreen = Color.fromARGB(0, 6, 145, 131);
+
+
 
 const colorBlack = Colors.black;
+
+const col = Color.fromARGB(255, 233, 211, 211);
