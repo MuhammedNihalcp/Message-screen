@@ -1,6 +1,5 @@
 import 'package:bubble/bubble.dart';
 
-
 import 'package:chat_bubbles/message_bars/message_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -56,7 +55,7 @@ class ScreenChats extends StatelessWidget {
                 kWidth12,
                 Expanded(
                   child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       kHeigh2,
@@ -96,23 +95,36 @@ class ScreenChats extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: Row(
+                        mainAxisAlignment:
+                            chatController.messages[index].messageType ==
+                                    "receiver"
+                                ? MainAxisAlignment.start
+                                : MainAxisAlignment.end,
                         children: [
                           Column(
                             children: [
-                              Text(chatController.messages[index].messageType ==
-                                      "receiver"
-                                  ? DateFormat.MMMd().add_jm().format(
-                                      chatController.messages[index].time!)
-                                  : ""),
+                              Text(
+                                // chatController.messages[index].messageType ==
+                                //         "receiver"
+                                //     ? DateFormat.MMMd().add_jm().format(
+                                //         chatController.messages[index].time!)
+                                //     :
+                                "",
+                              ),
                               Icon(
                                 chatController.messages[index].isRead == false
                                     ? null
                                     : Icons.done_all,
+                                size: 15,
+                                color: dartGreen,
                               ),
                             ],
                           ),
                           Bubble(
-                            nipWidth: 13,
+                            nipWidth: 6,
+                            nipHeight: 5,
+                            nipRadius: 1,
+                            radius: const Radius.circular(20),
                             alignment:
                                 chatController.messages[index].messageType ==
                                         "receiver"
@@ -131,24 +143,6 @@ class ScreenChats extends StatelessWidget {
                           )
                         ],
                       ),
-                      // BubbleSpecialThree(
-                      //   text: chatController.messages[index].messageContent,
-                      //   color: chatController.messages[index].messageType ==
-                      //           "receiver"
-                      //       ? colorWihte
-                      //       : dartGreen,
-                      //   tail: true,
-                      //   isSender: chatController.messages[index].messageType ==
-                      //           "receiver"
-                      //       ? false
-                      //       : true,
-                      //   textStyle: TextStyle(
-                      //       color: chatController.messages[index].messageType ==
-                      //               "receiver"
-                      //           ? colorBlack
-                      //           : colorWihte,
-                      //       fontSize: 16),
-                      // ),
                     ),
                   );
                 },
@@ -164,63 +158,3 @@ class ScreenChats extends StatelessWidget {
     );
   }
 }
-
-// // Column(
-// //       mainAxisAlignment: MainAxisAlignment.center,
-// //       children: <Widget>[
-// //         Bubble(
-// //           margin: BubbleEdges.only(top: 10),
-// //           nipWidth: 13,
-
-// //           alignment: Alignment.topRight,
-// //           nip: BubbleNip.rightBottom,
-// //           color: Color.fromRGBO(212, 234, 244, 1.0),
-// //           child: Text(documentSnapshot.data['text'], style: TextStyle(fontSize: 18.0)),
-// //         ),
-
-
-// //     Row(
-// //     mainAxisAlignment: MainAxisAlignment.end,
-// //     children: <Widget>[
-// //       Text(
-// //         documentSnapshot.data["time"] != null
-// //             ? DateFormat.MMMd()
-// //             .add_jm()
-// //             .format(documentSnapshot
-// //             .data["time"]
-// //             .toDate())
-// //             .toString()
-// //             : "",
-// //     style: TextStyle(
-// //     color: secondryColor,
-// //     fontSize: 13.0,
-// //     fontWeight: FontWeight.w600,
-// //     ),
-// //       ),
-// //       SizedBox(
-// //         width: 5,
-// //       ),
-// //       documentSnapshot.data['isRead'] == false
-// //           ? Icon(
-// //         Icons.done,
-// //         color: secondryColor,
-// //         size: 15,
-// //       )
-// //           : Icon(
-// //         Icons.done_all,
-// //         color: primaryColor,
-// //         size: 15,
-// //     )
-// //     ],
-// //     ),
-// //     ],
-// //     ),
-//       ),
-
-    
-
-          
-        
-      
-    
-  
