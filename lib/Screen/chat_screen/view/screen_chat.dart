@@ -14,6 +14,8 @@ class ScreenChats extends StatelessWidget {
 
   final chatController = Get.put(ChatController());
 
+  DateTime times = DateTime.now();
+
   final width = Get.size.width;
   final height = Get.size.height;
   @override
@@ -91,7 +93,7 @@ class ScreenChats extends StatelessWidget {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(right: 8, top: 8),
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: Row(
@@ -102,15 +104,8 @@ class ScreenChats extends StatelessWidget {
                                 : MainAxisAlignment.end,
                         children: [
                           Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              Text(
-                                // chatController.messages[index].messageType ==
-                                //         "receiver"
-                                //     ? DateFormat.MMMd().add_jm().format(
-                                //         chatController.messages[index].time!)
-                                //     :
-                                "",
-                              ),
                               Icon(
                                 chatController.messages[index].isRead == false
                                     ? null
@@ -118,6 +113,18 @@ class ScreenChats extends StatelessWidget {
                                 size: 15,
                                 color: dartGreen,
                               ),
+                              chatController.messages[index].messageType ==
+                                      "sender"
+                                  ? Text(
+                                      DateFormat('hh:mm a')
+                                          .format(times)
+                                          .toString(),
+                                      style: const TextStyle(
+                                        fontSize: 8,
+                                        color: colorGray,
+                                      ),
+                                    )
+                                  : const SizedBox(),
                             ],
                           ),
                           Bubble(

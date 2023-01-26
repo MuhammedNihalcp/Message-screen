@@ -5,6 +5,7 @@ const colorWihte = Colors.white;
 
 const dartGreen = Color.fromARGB(230, 6, 145, 131);
 
+const colorGray = Colors.grey;
 
 
 const colorBlack = Colors.black;
