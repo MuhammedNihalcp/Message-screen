@@ -29,11 +29,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  chat_bubbles: ^1.4.0
+  bubble: 1.2.1
+  chat_bubbles: 1.4.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  get: ^4.6.5
+  get: 4.6.5
+  intl: 0.17.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
